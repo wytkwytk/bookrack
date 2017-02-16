@@ -21,6 +21,7 @@
 		F6EEDAF91E540B960079F07C /* image_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6EEDAF71E540B960079F07C /* image_4.jpg */; };
 		F6EEDAFA1E540B960079F07C /* image_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6EEDAF81E540B960079F07C /* image_5.jpg */; };
 		F6EEDAFD1E540CCD0079F07C /* CXBookrackItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EEDAFC1E540CCD0079F07C /* CXBookrackItemView.m */; };
+		F6EEDB001E542B7C0079F07C /* CXBookItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EEDAFF1E542B7C0079F07C /* CXBookItemModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		F6EEDAF81E540B960079F07C /* image_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image_5.jpg; sourceTree = "<group>"; };
 		F6EEDAFB1E540CCD0079F07C /* CXBookrackItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXBookrackItemView.h; sourceTree = "<group>"; };
 		F6EEDAFC1E540CCD0079F07C /* CXBookrackItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXBookrackItemView.m; sourceTree = "<group>"; };
+		F6EEDAFE1E542B7C0079F07C /* CXBookItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXBookItemModel.h; sourceTree = "<group>"; };
+		F6EEDAFF1E542B7C0079F07C /* CXBookItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXBookItemModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,8 @@
 				F6EEDADE1E53F2FD0079F07C /* ViewController.m */,
 				F6EEDAEE1E53F3480079F07C /* CXBookrackView.h */,
 				F6EEDAEF1E53F3480079F07C /* CXBookrackView.m */,
+				F6EEDAFE1E542B7C0079F07C /* CXBookItemModel.h */,
+				F6EEDAFF1E542B7C0079F07C /* CXBookItemModel.m */,
 				F6EEDAFB1E540CCD0079F07C /* CXBookrackItemView.h */,
 				F6EEDAFC1E540CCD0079F07C /* CXBookrackItemView.m */,
 				F6EEDAE01E53F2FD0079F07C /* Main.storyboard */,
@@ -258,6 +263,7 @@
 			files = (
 				F6EEDADF1E53F2FD0079F07C /* ViewController.m in Sources */,
 				F6EEDAF01E53F3480079F07C /* CXBookrackView.m in Sources */,
+				F6EEDB001E542B7C0079F07C /* CXBookItemModel.m in Sources */,
 				F6EEDAFD1E540CCD0079F07C /* CXBookrackItemView.m in Sources */,
 				F6EEDADC1E53F2FD0079F07C /* AppDelegate.m in Sources */,
 				F6EEDAD91E53F2FD0079F07C /* main.m in Sources */,

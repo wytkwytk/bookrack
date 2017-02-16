@@ -10,6 +10,12 @@
 
 @implementation CXBookrackItemView
 
++ (instancetype)createBookrackItemViewWithFrame:(CGRect)frame Item:(CXBookItemModel *)bookItem {
+    CXBookrackItemView *view = [[CXBookrackItemView alloc] initWithFrame:frame];
+    view.imageView.image = [UIImage imageNamed:bookItem.imageName];
+    return view;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {

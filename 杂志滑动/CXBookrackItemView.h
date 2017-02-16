@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CXBookItemModel.h"
 
 @interface CXBookrackItemView : UIView
 
 @property (nonatomic, strong) UIImageView *imageView;
+
++ (instancetype)createBookrackItemViewWithFrame:(CGRect)frame
+                                           Item:(CXBookItemModel *)bookItem;
 
 @end

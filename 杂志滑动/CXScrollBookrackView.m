@@ -235,7 +235,7 @@
     CGFloat currentY = CGRectGetMinY(currentFrame);
     CGFloat endY = currentY + offsetY;
     
-    if (endY < MainItemOriginY) {
+    if (endY <= MainItemOriginY) {
         if (endY < W(35)) {
             endY = W(35);
         }
@@ -265,7 +265,10 @@
     CGFloat firstOffset = MainItemOriginY - CGRectGetMinY(firstView.frame);
     CGFloat secondOffset = MainItemOriginY - CGRectGetMinY(secondView.frame);
     
-    return fabs(firstOffset) < fabs(secondOffset) ? firstOffset : secondOffset;
+    CGFloat RealfirstOffset = firstOffset < 0 ? firstOffset/15.f : firstOffset;
+    CGFloat RealsecondOffset = secondOffset < 0 ? secondOffset/15.f : secondOffset;
+    
+    return fabs(firstOffset) < fabs(secondOffset) ? RealfirstOffset : RealsecondOffset;
     
 }
 

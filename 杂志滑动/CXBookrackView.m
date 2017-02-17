@@ -135,7 +135,6 @@
         CGRect preViewFrame = [self getFrameWithIndex:0];
         preViewFrame.origin.y = ScreenHeight;
         CXBookrackItemView *preBookView = [CXBookrackItemView createBookrackItemViewWithFrame:preViewFrame Item:self.itemList[preIndex]];
-//        preBookView.alpha = 0;
         preBookView.tag = preIndex;
         [self addSubview:preBookView];
         [self.itemViewList insertObject:preBookView atIndex:0];
@@ -145,10 +144,6 @@
         psa.springBounciness = 0;
         [preBookView pop_addAnimation:psa forKey:@"frame"];
         
-//        [UIView animateWithDuration:0.4 animations:^{
-//            preBookView.frame = [self getFrameWithIndex:0];
-////            preBookView.alpha = 1;
-//        }];
         
     } else {
         [self.itemViewList insertObject:obj atIndex:0];
@@ -202,15 +197,10 @@
         psa.springBounciness = 2;
         [bookView pop_addAnimation:psa forKey:@"frame"];
         
-        //        self.userInteractionEnabled = NO;
-//        CGRect frame = bookView.frame;
-//        frame.origin.y = ScreenHeight ;
         [UIView animateWithDuration:0.5 animations:^{
-//            bookView.frame = frame;
             bookView.alpha = 0.2;
         } completion:^(BOOL finished) {
             [bookView removeFromSuperview];
-            //            self.userInteractionEnabled = YES;
         }];
     } else {
         
@@ -230,7 +220,7 @@
         
         if (idx == self.itemViewList.count - 1) {
             [self sendSubviewToBack:bookView];
-            UIScrollView
+            
         }
     }];
 }

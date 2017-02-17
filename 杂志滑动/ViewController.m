@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "CXBookrackView.h"
+#import "CXScrollBookrackView.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) CXBookrackView *bookrackView;
+@property (nonatomic, strong) CXScrollBookrackView *scrollBookrackView;
 
 @end
 
@@ -20,9 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.bookrackView = [[CXBookrackView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:self.bookrackView];
+//    self.bookrackView = [[CXBookrackView alloc] initWithFrame:self.view.bounds];
+//    [self.view addSubview:self.bookrackView];
+
     
+    self.scrollBookrackView = [[CXScrollBookrackView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.scrollBookrackView];
 }
 
 

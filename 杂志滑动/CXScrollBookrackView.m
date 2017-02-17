@@ -123,6 +123,29 @@
     
 }
 
+- (void)scrollToFinalLocation:(id)velocity {
+    CGFloat offsetY = [self getFinalOffset];
+    POPBasicAnimation *springAnim = [POPBasicAnimation animation];
+    springAnim.fromValue = @(0);
+    springAnim.toValue = @(offsetY);
+//    springAnim.velocity = velocity;
+    springAnim.property = [self springProperty];
+    [self pop_addAnimation:springAnim forKey:@"Finalspring"];
+    
+}
+
+- (POPMutableAnimatableProperty *)springProperty {
+    __block CGFloat star = 0;
+    return [POPMutableAnimatableProperty propertyWithName:@"spring" initializer:^(POPMutableAnimatableProperty *prop) {
+        prop.writeBlock = ^(id obj, const CGFloat values[]) {
+            NSNumber *number = @(values[0]);
+            CGFloat y = [number floatValue];
+            [self allIetmRefreshFrameWithOffsetY:(y - star)];
+            star = y;
+        };
+    }];
+}
+
 //减速时offset的变化
 - (POPMutableAnimatableProperty *)animationProperty {
     
@@ -134,6 +157,14 @@
             CGFloat y = [number floatValue];
             [self allIetmRefreshFrameWithOffsetY:(y - star)/15.f];
             star = y;
+            
+            POPDecayAnimation *decayAnim = [self pop_animationForKey:@"decay"];
+            NSLog(@"%@",decayAnim.velocity);
+            if ([decayAnim.velocity floatValue] <= 80 * 15) {
+                [self pop_removeAllAnimations];
+                [self scrollToFinalLocation:decayAnim.velocity];
+            }
+            
         };
     }];
     
@@ -173,8 +204,6 @@
             index = lastView.tag + 1;
         }
         
-        NSLog(@"tag:%ld index:%ld",lastView.tag,index);
-        
         self.addNewItemView = [self getItemViewWithItem:self.itemList[index] index:MaxShowViewNumber - 1];
         self.addNewItemView.tag = index;
         [self addSubview:self.addNewItemView];
@@ -201,6 +230,7 @@
     return CGRectMake(x, y, width, height);
 }
 
+//计算不同滑动位置item的frame
 - (CGRect)getNewFrameWithCurrentFrame:(CGRect)currentFrame offsetY:(CGFloat)offsetY {
     CGFloat currentY = CGRectGetMinY(currentFrame);
     CGFloat endY = currentY + offsetY;
@@ -224,9 +254,19 @@
         return CGRectMake(x, y, width, height);
     }
     
-    
-    
     return currentFrame;
+}
+
+//计算停止滑动时 需要移动到正确位置的offset
+- (CGFloat)getFinalOffset {
+    CXBookrackItemView *firstView = self.itemViewList[0];
+    CXBookrackItemView *secondView = self.itemViewList[1];
+    
+    CGFloat firstOffset = MainItemOriginY - CGRectGetMinY(firstView.frame);
+    CGFloat secondOffset = MainItemOriginY - CGRectGetMinY(secondView.frame);
+    
+    return fabs(firstOffset) < fabs(secondOffset) ? firstOffset : secondOffset;
+    
 }
 
 @end
